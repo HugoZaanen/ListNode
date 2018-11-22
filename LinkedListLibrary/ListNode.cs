@@ -74,7 +74,30 @@ namespace LinkedListLibrary
             }
         }
 
-        //remove first node from List
+        //remove first node from list
+        public object RemoveFromFront()
+        {
+            if(IsEmpty())
+            {
+                throw new EmptyListException(name);
+            }
+
+            object removeItem = firstNode.Data;//retrieve data
+
+            //reset firstNode and lastnode references
+            if(firstNode == lastNode)
+            {
+                firstNode = lastNode = null;
+            }
+            else
+            {
+                firstNode = firstNode.Next;
+            }
+
+            return removeItem;//return removed data
+        }
+
+        //remove last node from List
         public object RemoveFromBack()
         {
             if(IsEmpty())
